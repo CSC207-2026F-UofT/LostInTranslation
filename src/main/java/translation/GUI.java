@@ -48,16 +48,14 @@ public class GUI {
             languagePanel.add(languageComboBox);
 
             JPanel buttonPanel = new JPanel();
-            JButton submit = new JButton("Submit");
-            buttonPanel.add(submit);
+            // JButton submit = new JButton("Submit");
+            // buttonPanel.add(submit);
 
             JLabel resultLabelText = new JLabel("Translation:");
             buttonPanel.add(resultLabelText);
             JLabel resultLabel = new JLabel("\t\t\t\t\t\t\t");
             buttonPanel.add(resultLabel);
             
-
-
 
             Runnable updateTranslation = () -> {
                 String countryName = countryList.getSelectedValue();
@@ -83,9 +81,6 @@ public class GUI {
                     updateTranslation.run();
                 }
             });
-
-            languageComboBox.addActionListener(event -> updateTranslation.run());
-            submit.addActionListener(event -> updateTranslation.run());
 
             JPanel mainPanel = new JPanel();
             mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
