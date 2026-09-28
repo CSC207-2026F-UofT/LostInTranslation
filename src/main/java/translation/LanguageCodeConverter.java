@@ -48,7 +48,7 @@ public class LanguageCodeConverter {
                 String code = data[1];
 
                 languageCodeToLanguage.put(code, language);
-                languageCodeToLanguage.put(language, code);
+                languageToLanguageCode.put(language, code);
             }
 
         } catch (IOException | URISyntaxException ex) {
@@ -73,7 +73,7 @@ public class LanguageCodeConverter {
      */
     public String fromLanguage(String language) {
         // update this code to use the correct instance variable to return the appropriate value
-        return languageCodeToLanguage.get(language);
+        return languageToLanguageCode.get(language);
     }
 
     /**
