@@ -13,48 +13,94 @@ public class GUI {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+
+            Translator translator = new JSONTranslator();
+            CountryCodeConverter countryConverter = new CountryCodeConverter();
+            LanguageCodeConverter languageConverter = new LanguageCodeConverter();
+
             JPanel countryPanel = new JPanel();
-            JTextField countryField = new JTextField(10);
-            countryField.setText("can");
-            countryField.setEditable(false); // we only support the "can" country code for now
+
+            String[] countryNames = new String[translator.getCountryCodes().size()];
+
+            int i = 0;
+            for (String countryCode : translator.getCountryCodes()) {
+                countryNames[i] = countryConverter.fromCountryCode(countryCode);
+                i++;
+            }
+
+            JList<String> countryList = new JList<>(countryNames);
+            countryList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+            JScrollPane countryScrollPane = new JScrollPane(countryList);
+
             countryPanel.add(new JLabel("Country:"));
-            countryPanel.add(countryField);
+            countryPanel.add(countryScrollPane);
+
 
             JPanel languagePanel = new JPanel();
-            JTextField languageField = new JTextField(10);
+
+            JComboBox<String> languageComboBox = new JComboBox<>();
+
+            for (String languageCode : translator.getLanguageCodes()) {
+                String languageName = languageConverter.fromLanguageCode(languageCode);
+                languageComboBox.addItem(languageName);
+            }
+
             languagePanel.add(new JLabel("Language:"));
-            languagePanel.add(languageField);
+            languagePanel.add(languageComboBox);
+
 
             JPanel buttonPanel = new JPanel();
-            JButton submit = new JButton("Submit");
-            buttonPanel.add(submit);
 
             JLabel resultLabelText = new JLabel("Translation:");
             buttonPanel.add(resultLabelText);
+
             JLabel resultLabel = new JLabel("\t\t\t\t\t\t\t");
             buttonPanel.add(resultLabel);
 
 
-            // adding listener for when the user clicks the submit button
-            submit.addActionListener(new ActionListener() {
+            countryList.addListSelectionListener(e -> {
+                if (!e.getValueIsAdjusting()) {
+                    String countryName = countryList.getSelectedValue();
+                    String languageName = (String) languageComboBox.getSelectedItem();
+
+                    if (countryName != null && languageName != null) {
+                        String country = countryConverter.fromCountry(countryName);
+                        String language = languageConverter.fromLanguage(languageName);
+
+                        String result = translator.translate(country, language);
+
+                        if (result == null) {
+                            result = "no translation found!";
+                        }
+
+                        resultLabel.setText(result);
+                    }
+                }
+            });
+
+
+            languageComboBox.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String language = languageField.getText();
-                    String country = countryField.getText();
+                    String countryName = countryList.getSelectedValue();
+                    String languageName = (String) languageComboBox.getSelectedItem();
 
-                    // for now, just using our simple translator, but
-                    // we'll need to use the real JSON version later.
-                    Translator translator = new CanadaTranslator();
+                    if (countryName != null && languageName != null) {
+                        String country = countryConverter.fromCountry(countryName);
+                        String language = languageConverter.fromLanguage(languageName);
 
-                    String result = translator.translate(country, language);
-                    if (result == null) {
-                        result = "no translation found!";
+                        String result = translator.translate(country, language);
+
+                        if (result == null) {
+                            result = "no translation found!";
+                        }
+
+                        resultLabel.setText(result);
                     }
-                    resultLabel.setText(result);
-
                 }
-
             });
+
 
             JPanel mainPanel = new JPanel();
             mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
