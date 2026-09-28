@@ -49,10 +49,6 @@ public class LanguageCodeConverter {
                 for (String country_name : country_names) {
                     languageCodeToLanguage.put(country_name.strip(), country_code);
                 }
-
-
-
-                // TODO Task A: use line to populate the instance variables
             }
 
         } catch (IOException | URISyntaxException ex) {
