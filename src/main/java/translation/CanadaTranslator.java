@@ -65,5 +65,8 @@ public class CanadaTranslator implements Translator {
         else {
             return null;
         }
+        else {
+            return null;
+        }
     }
 }
