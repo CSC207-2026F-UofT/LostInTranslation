@@ -47,7 +47,7 @@ public class LanguageCodeConverter {
                 String country_code = tab_split[1].strip();
 
                 this.languageCodeToLanguage.put(country_code, country_name);
-                this.languageCodeToLanguage.put(country_name, country_code);
+                this.languageToLanguageCode.put(country_name, country_code);
             }
 
         } catch (IOException | URISyntaxException ex) {
