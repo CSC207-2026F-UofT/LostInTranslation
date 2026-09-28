@@ -48,7 +48,6 @@ public class LanguageCodeConverter {
                 String[] part = line.split("\t");
                 languageCodeToLanguage.put(part[1],part[0]);
                 languageToLanguageCode.put(part[0],part[1]);
-                // TODO Task A: use line to populate the instance variables
             }
 
         } catch (IOException | URISyntaxException ex) {
