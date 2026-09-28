@@ -43,12 +43,10 @@ public class LanguageCodeConverter {
             while (iterator.hasNext()) {
                 String line = iterator.next();
                 String[] tab_split = line.split("\t", 2);
-                String[] country_names = tab_split[0].split(",");
+                String country_name = tab_split[0].strip();
                 String country_code = tab_split[1].strip();
 
-                for (String country_name : country_names) {
-                    languageCodeToLanguage.put(country_name.strip(), country_code);
-                }
+                languageCodeToLanguage.put(country_code, country_name);
             }
 
         } catch (IOException | URISyntaxException ex) {
