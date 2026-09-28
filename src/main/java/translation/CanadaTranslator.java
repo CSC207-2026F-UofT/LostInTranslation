@@ -45,20 +45,19 @@ public class CanadaTranslator implements Translator {
      */
     @Override
     public String translate(String countryCode, String languageCode) {
-        if (!countryCode.equals(CANADA)) {
+        if (!countryCode.equals(CANADA))
             return null;
-        }
-        if (languageCode.equals("de")) {
+        if (languageCode.equals("de"))
             return "Kanada";
-        }
-        else if (languageCode.equals("en")) {
+        else if (languageCode.equals("en"))
             return "Canada";
-        }
-        else if ("zh".equals(languageCode)) {
+        else if ("zh".equals(languageCode))
             return "加拿大";
-        }
-        else {
+        else if (languageCode.equals("es"))
+            return "Canadá";
+        else if (languageCode.equals("fr"))
+            return "Canada";
+        else
             return null;
-        }
     }
 }
