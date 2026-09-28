@@ -46,7 +46,8 @@ public class LanguageCodeConverter {
                 String country_name = tab_split[0].strip();
                 String country_code = tab_split[1].strip();
 
-                languageCodeToLanguage.put(country_code, country_name);
+                this.languageCodeToLanguage.put(country_code, country_name);
+                this.languageCodeToLanguage.put(country_name, country_code);
             }
 
         } catch (IOException | URISyntaxException ex) {
@@ -69,8 +70,7 @@ public class LanguageCodeConverter {
      * @return the 2-letter code of the language
      */
     public String fromLanguage(String language) {
-        // TODO Task A: update this code to use the correct instance variable to return the appropriate value
-        return language;
+        return this.languageToLanguageCode.get(language);
     }
 
     /**
