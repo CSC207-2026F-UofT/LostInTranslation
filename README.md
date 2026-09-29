@@ -13,7 +13,7 @@ in this readme).
 
 ---
 
-- [ ] **To get started, have one member of your team make a fork of this
+- [X] **To get started, have one member of your team make a fork of this
 repo on GitHub and add each other team member as a collaborator. This
 will allow you to make and review pull requests from each other
 during the lab.**
@@ -152,7 +152,7 @@ the program works purely in terms of country codes and language codes as demonst
 contain. Notice that each of the `.txt` files contains a header row at the top,
 which is ignored when reading the data.
 
-- [ ] **As a team, complete the `TODO Task 1` in `CanadaTranslator` to get familiar with
+- [X] **As a team, complete the `TODO Task 1` in `CanadaTranslator` to get familiar with
   the data we are working with in this activity.**
 
 Once your team completes this task, you should be able to run the GUI and translate
