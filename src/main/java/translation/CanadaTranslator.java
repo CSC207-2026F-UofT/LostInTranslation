@@ -60,8 +60,8 @@ public class CanadaTranslator implements Translator {
         else if (languageCode.equals("es")) {
             return "Canadá";
         }
-        else if (languageCode.equals("bg")) {
-            return "Канада";
+        else if (languageCode.equals("fr")) {
+            return "Canada";
         }
         else {
             return null;
