@@ -28,8 +28,11 @@ public class LanguageCodeConverter {
     }
 
     /**
-     * Overloaded constructor that allows us to specify the filename to load the language code data from.
-     * @param filename the name of the file in the resources folder to load the data from
+     * Overloaded constructor that allows us to specify the filename to load the
+     * language code data from.
+     * 
+     * @param filename the name of the file in the resources folder to load the data
+     *                 from
      * @throws RuntimeException if the resources file can't be loaded properly
      */
     public LanguageCodeConverter(String filename) {
@@ -42,7 +45,16 @@ public class LanguageCodeConverter {
             iterator.next(); // skip the first line
             while (iterator.hasNext()) {
                 String line = iterator.next();
-                // TODO Task A: use line to populate the instance variables
+                String[] temp = line.split("\t");
+                System.err.println(temp);
+                String language, languageCode;
+                language = temp[0];
+                languageCode = temp[1];
+
+                languageCodeToLanguage.put(languageCode, language);
+                languageToLanguageCode.put(language, languageCode);
+                System.out.println(language + " " + languageCode);
+
             }
 
         } catch (IOException | URISyntaxException ex) {
@@ -52,26 +64,27 @@ public class LanguageCodeConverter {
 
     /**
      * Return the name of the language for the given language code.
+     * 
      * @param code the 2-letter language code
      * @return the name of the language corresponding to the code
      */
     public String fromLanguageCode(String code) {
-        // TODO Task A: update this code to use the correct instance variable to return the appropriate value
-        return code;
+        return languageCodeToLanguage.get(code);
     }
 
     /**
      * Return the code of the language for the given language name.
+     * 
      * @param language the name of the language
      * @return the 2-letter code of the language
      */
     public String fromLanguage(String language) {
-        // TODO Task A: update this code to use the correct instance variable to return the appropriate value
-        return language;
+        return languageToLanguageCode.get(language);
     }
 
     /**
      * Return how many languages are included in this language code converter.
+     * 
      * @return how many languages are included in this language code converter.
      */
     public int getNumLanguages() {
