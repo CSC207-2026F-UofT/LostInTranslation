@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -42,7 +43,10 @@ public class CountryCodeConverter {
                 String line = iterator.next();
                 String[] parts = line.split("\t");
 
-                // TODO Task B: use parts to populate the instance variables
+                String country = parts[0];
+                String code = parts[2];
+                countryCodeToCountry.put(code, country);
+                countryToCountryCode.put(country, code);
             }
         }
         catch (IOException | URISyntaxException ex) {
