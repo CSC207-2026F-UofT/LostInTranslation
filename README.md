@@ -1,5 +1,6 @@
 # Lab 3: Team Task: Country Translation Program 
 HELLO
+HI
 ---
 
 ## Program Overview
