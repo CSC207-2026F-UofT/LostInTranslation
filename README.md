@@ -1,5 +1,5 @@
 # Lab 3: Team Task: Country Translation Program 
-
+HELLO
 ---
 
 ## Program Overview
@@ -13,7 +13,7 @@ in this readme).
 
 ---
 
-- [ ] **To get started, have one member of your team make a fork of this
+- [X] **To get started, have one member of your team make a fork of this
 repo on GitHub and add each other team member as a collaborator. This
 will allow you to make and review pull requests from each other
 during the lab.**
