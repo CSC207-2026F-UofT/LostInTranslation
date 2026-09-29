@@ -88,6 +88,6 @@ public class JSONTranslator implements Translator {
 
     @Override
     public String translate(String countryCode, String languageCode) {
-        return translations.get(countryCode + "-" + languageCode);
+        return translations.get(countryCode.toLowerCase() + "-" + languageCode);
     }
 }
