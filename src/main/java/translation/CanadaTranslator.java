@@ -5,7 +5,7 @@ import java.util.List;
 
 // TODO Task 1: as a team, update this class so that it also supports the Spanish language code "es" and
 //              one more language code of your team's choice. Submit a PR once the code is working and
-//              make sure everyone has a local working copy of the code.
+//              make sure everyone has a local working copy of the code. HI
 
 /**
  * An implementation of the Translator interface that translates
