@@ -13,7 +13,7 @@ in this readme).
 
 ---
 
-- [ ] **To get started, have one member of your team make a fork of this
+- [X] **To get started, have one member of your team make a fork of this
 repo on GitHub and add each other team member as a collaborator. This
 will allow you to make and review pull requests from each other
 during the lab.**
@@ -164,10 +164,11 @@ to the two new languages that were implemented!
 These three sets of TODO tasks relate to the actual translation, converting
 language codes, and converting country codes.
 
-- [ ] **Divide up these three tasks across your team and complete them. As needed,
+- [X] **Divide up these three tasks across your team and complete them. As needed,
   you can work in pairs or further subdivide these tasks.**
 
 > Once these are implemented, the provided tests should all pass.
+
 
 ---
 
