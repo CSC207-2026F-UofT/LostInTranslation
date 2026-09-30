@@ -90,7 +90,6 @@ public class JSONTranslator implements Translator {
 
     @Override
     public String translate(String countryCode, String languageCode) {
-        translations.get(countryCode+"-"+languageCode);
-        return "JSONTranslator's translate method is not implemented!";
+        return translations.get(countryCode+"-"+languageCode);
     }
 }
