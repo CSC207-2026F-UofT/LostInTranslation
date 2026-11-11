@@ -15,7 +15,7 @@ import java.util.Map;
 public class CountryCodeConverter {
 
     private Map<String, String> countryCodeToCountry = new HashMap<>();
-    private Map<String, String> countryToCountryCode = new HashMap<>();
+    private final Map<String, String> countryToCountryCode = new HashMap<>();
 
     /**
      * Default constructor that loads the country codes from "country-codes.txt"
@@ -41,6 +41,8 @@ public class CountryCodeConverter {
             while (iterator.hasNext()) {
                 String line = iterator.next();
                 String[] parts = line.split("\t");
+                countryCodeToCountry.put(parts[2], parts[0]);
+                countryToCountryCode.put(parts[0], parts[2]);
                 // TODO Task B: use parts to populate the instance variables
             }
         }
@@ -57,7 +59,7 @@ public class CountryCodeConverter {
      */
     public String fromCountryCode(String code) {
         // TODO Task B: update this code to use an instance variable to return the correct value
-        return code;
+        return countryCodeToCountry.get(code.toUpperCase());
     }
 
     /**
@@ -66,8 +68,8 @@ public class CountryCodeConverter {
      * @return the 3-letter code of the country
      */
     public String fromCountry(String country) {
-        // TODO Task B: update this code to use an instance variable to return the correct value
-        return country;
+        String code = countryToCountryCode.get(country);
+        return code;
     }
 
     /**
@@ -76,6 +78,6 @@ public class CountryCodeConverter {
      */
     public int getNumCountries() {
         // TODO Task B: update this code to use an instance variable to return the correct value
-        return 0;
+        return countryToCountryCode.size();
     }
 }
